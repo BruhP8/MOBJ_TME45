@@ -3,7 +3,7 @@
 namespace Netlist
 {
     Cell* Term::getOwnerCell() const{
-        // TODO
+        return static_cast<Cell*>(owner_);
     }
 
     void Term::setNet(Net* net){
@@ -14,16 +14,12 @@ namespace Netlist
         // TODO
     }
 
-    void Term::setDirection(Direction){
-        // TODO
-    }
-
     void Term::setPosition(const Point& pt){
-        // TODO
+        node_.setPosition(pt);
     }
 
     void Term::setPosition(int x, int y){
-        // TODO
+        node_.setPosition(x, y);
     }
 } // namespace Netlist
 

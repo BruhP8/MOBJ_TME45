@@ -84,5 +84,6 @@ namespace Netlist{
     
     inline Term::Type Term::getType() const {return type_;}
 
+    inline void Term::setDirection(Direction dir){ direction_ = dir;}
 }
 #endif // NETLIST_TERM_H
