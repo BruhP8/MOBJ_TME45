@@ -7,6 +7,8 @@
 #include"Point.h"
 
 namespace Netlist{
+    class Term;
+
     class Instance
     {
     private:
@@ -36,6 +38,7 @@ namespace Netlist{
     };
     
     inline Instance::Instance(Cell* owner, Cell* model, const std::string&)
+                    : owner_(owner), masterCell_(model)
     {
     }
     

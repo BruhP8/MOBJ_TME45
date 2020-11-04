@@ -1,17 +1,23 @@
 #include "Instance.h"
 #include "Term.h"
+#include "Net.h"
 namespace Netlist
 {
     bool Instance::connect(const std::string& name, Net * net){
-        //TODO
+        Term * target = getTerm(name);
+        if(target == NULL) return false;
+        target->setNet(net);
+        return true;
     }
 
     void Instance::add(Term * toadd){
-        //TODO
+        terms_.push_back(toadd);
     }
 
     void Instance::remove(Term * toremove){
-        //TODO
+        for(std::vector<Term*>::iterator it= terms_.begin(); it != terms_.end(); ++it){
+            if(*it == toremove) terms_.erase(it);
+        }
     }
 
     void Instance::setPosition(const Point& pos){
