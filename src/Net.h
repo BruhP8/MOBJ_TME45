@@ -17,9 +17,9 @@ namespace Netlist{
         std::vector<Node*>  nodes_;
     public:
         // CTOR
-                                            Net(Cell *, const std::string&, Term::Type);
+        inline                              Net(Cell *, const std::string&, Term::Type);
         // DTOR
-                                            ~Net();
+        inline                              ~Net();
         // Accessors
         inline          Cell*               getCell       () const;
         inline const    std::string         getName       () const;
@@ -32,13 +32,24 @@ namespace Netlist{
                         bool                remove        (Node*);
     };
     
-    Net::Net(Cell*, const std::string&, Term::Type)
+    inline Net::Net(Cell*, const std::string&, Term::Type)
     {
     }
     
-    Net::~Net()
+    inline Net::~Net()
     {
     }
+
+    inline Cell* Net::getCell() const{ return owner_;}
+
+    inline const std::string Net::getName() const{ return name_;}
     
+    inline unsigned int Net::getId() const{ return id_;}
+
+    inline Term::Type Net::getType () const{ return type_;}
+
+    inline const std::vector<Node*>& Net::getNodes_() const { return nodes_;}
+
+    inline size_t Net::getFreeNodeId () const{}
 }
 #endif // NETLIST_NET_H

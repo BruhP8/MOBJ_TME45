@@ -17,15 +17,15 @@ namespace Netlist{
         Point               position_;
     public:
         // CTOR
-                                            Instance(Cell* owner, Cell* model, const std::string&);
+        inline                              Instance(Cell* owner, Cell* model, const std::string&);
         // DTOR
-                                            ~Instance();
+        inline                              ~Instance();
         // Accessors
         inline const    std::string&        getName         () const;
         inline          Cell*               getMasterCell   () const;
         inline          Cell*               getCell         () const;
         inline const    std::vector<Term*>& getTerms        () const;
-        inline          Term*               getTerm         (const std::string&) const;
+                        Term*               getTerm         (const std::string&) const;
         inline          Point               getPosition     () const;
         // Mutators
                         bool                connect         (const std::string& name, Net*);
@@ -35,13 +35,18 @@ namespace Netlist{
                         void                setPosition     (int x, int y);
     };
     
-    Instance::Instance(Cell* owner, Cell* model, const std::string&)
+    inline Instance::Instance(Cell* owner, Cell* model, const std::string&)
     {
     }
     
-    Instance::~Instance()
+    inline Instance::~Instance()
     {
     }
     
+    inline const std::string& Instance::getName() const {return name_;}
+    inline Cell* Instance::getMasterCell() const { return masterCell_;}
+    inline Cell* Instance::getCell() const {return owner_;}
+    inline const std::vector<Term*>& Instance::getTerms() const {return terms_;}
+    inline Point Instance::getPosition() const {return position_;}
 }
 #endif // NETLIST_INSTANCE_H
