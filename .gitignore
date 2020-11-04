@@ -30,3 +30,6 @@ build/CMakeFiles/tme45.dir/flags.make
 build/CMakeFiles/tme45.dir/Indentation.cpp.o
 build/CMakeFiles/tme45.dir/link.txt
 build/CMakeFiles/tme45.dir/progress.make
+install/
+tme45
+build/
